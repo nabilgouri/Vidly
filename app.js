@@ -7,6 +7,7 @@ const startupDebugger = require('debug')('app:startup');
 const genresRouter = require('./routes/genres');
 const homeRouter = require('./routes/home');
 const customersRouter = require('./routes/customers');
+const moviesRouter = require('./routes/movies');
 
 const app = express();
 app.set('view engine', 'pug');
@@ -20,6 +21,7 @@ mongoose
 
 app.use('/api/genres', genresRouter);
 app.use('/api/customers', customersRouter);
+app.use('/api/movies', moviesRouter);
 app.use('/', homeRouter);
 
 if (app.get('env') === 'development') {
